@@ -1,0 +1,170 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>PACHECO, RENZO M - BSIT 21006</title>
+        <link rel="stylesheet" href="reader.css">
+        <script src="script.js" defer></script>
+    </head>
+
+    <body>
+
+        <header class="site-header">
+            <nav class="navbar">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span>ANI<span class="logo-accent">MEX</span></span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="browse.html">Explore</a>
+                    <a href="genre.html">Genres</a>
+                    <a href="bookmarks.html">Bookmarks</a>
+                </div>
+
+                <div class="nav-actions">
+
+                    <form class="search-box" id="searchForm" autocomplete="off">
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search stories..."
+                            aria-label="Search stories"
+                        >
+
+                        <div
+                            class="search-suggestions"
+                            id="searchSuggestions"
+                        ></div>
+                    </form>
+
+                    <button
+                        class="theme-button"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle color theme"
+                    >
+                        ☼
+                    </button>
+
+                </div>
+            </nav>
+        </header>
+
+
+
+        <main class="reader-page">
+
+
+            <section class="reader-header">
+
+                <a href="browse.html" class="back-link">
+                    ← Back to Browse
+                </a>
+
+                <h1 id="readerTitle">Story Title</h1>
+
+                <img
+                    id="readerCover"
+                    class="reader-cover"
+                    src="images/placeholder.jpg"
+                    alt="Story cover"
+                >
+
+                <p id="chapterTitle">Chapter 1</p>
+            </section>
+
+
+
+            <section class="reader-controls">
+
+                <button id="prevChapter" type="button">
+                     Previous
+                </button>
+
+                <select id="chapterSelect" aria-label="Select chapter">
+                    <option value="1">Chapter 1</option>
+                    <option value="2">Chapter 2</option>
+                    <option value="3">Chapter 3</option>
+                </select>
+
+                <button id="nextChapter" type="button">
+                    Next 
+                </button>
+
+            </section>
+
+
+
+            <section class="novel-reader">
+
+                <div class="novel-heading">
+                    <span class="novel-label">ANIMEX ORIGINAL</span>
+                    <h2 id="novelChapterHeading">Chapter 1: The Beginning</h2>
+                </div>
+
+                <article class="reader-content" id="readerContent">
+                    <p class="reader-placeholder">
+                        Your story will appear here.
+                    </p>
+                </article>
+
+            </section>
+
+
+
+            <section class="reader-bottom-controls">
+
+                <button id="prevChapterBottom" type="button">
+                    ← Previous Chapter
+                </button>
+
+                <button id="nextChapterBottom" type="button">
+                    Next Chapter →
+                </button>
+
+            </section>
+
+
+
+            <section class="chapter-list-section">
+
+                <h2>Chapters</h2>
+
+                <p class="chapter-list-description">
+                    Choose a chapter to continue reading.
+                </p>
+
+                <div id="chapterList" class="chapter-list"></div>
+
+            </section>
+
+        </main>
+
+
+    
+        <footer class="site-footer">
+
+            <a href="index.html" class="footer-logo">
+                ANIMEX<span>.</span>
+            </a>
+
+            <p>Your next story is waiting.</p>
+
+            <p class="copyright">
+            </p>
+
+        </footer>
+
+    </body>
+
+    <div class="reading-progress-container">
+        <div id="readingProgressBar"></div>
+    </div>
+
+    </html>
