@@ -1,0 +1,407 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>PACHECO, RENZO M - BSIT 21006</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+    <header class="site-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">A</span>
+                <span>ANI<span class="logo-accent">MEX</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="browse.html" class="active">Explore</a>
+                <a href="genre.html">Genres</a>
+                <a href="bookmarks.html">Bookmarks</a>
+            </div>
+
+            <div class="nav-actions">
+                <button class="theme-button" id="themeToggle"
+                    type="button" aria-label="Toggle color theme">☼</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="browse-page">
+        <section class="browse-controls">
+            <input type="search" id="browseSearch"
+                placeholder="Search" aria-label="Search stories">
+
+            <select id="genreFilter" aria-label="Filter by genre">
+                <option value="all">All Genres</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="romance">Romance</option>
+                <option value="comedy">Comedy</option>
+            </select>
+
+            <select id="statusFilter" aria-label="Filter by status">
+                <option value="all">All Status</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+            </select>
+
+            <select id="sortStories" aria-label="Sort stories">
+                <option value="default">Default Order</option>
+                <option value="az">Title: A–Z</option>
+                <option value="za">Title: Z–A</option>
+            </select>
+        </section>
+
+        <section class="browse-library">
+            <div class="browse-results-heading">
+                <h2>All Stories</h2>
+                <p id="resultCount"></p>
+            </div>
+
+            <div class="comic-grid" id="browseGrid">
+
+                <article class="comic-card" data-title="Solo Max-Level Newbie" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=1" class="cover-link">
+                        <img src="images/solomax.jpg" alt="Solo Max-Level Newbie cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Solo Max-Level Newbie</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Eleceed" data-genre="action adventure" data-status="completed">
+                    <a href="reader.html?id=2" class="cover-link">
+                        <img src="images/eleceed.jpeg" alt="Eleceed cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Eleceed</h3>
+                        <p>Action · Adventure</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Sword Master's Youngest Son" data-genre="fantasy adventure" data-status="ongoing">
+                    <a href="reader.html?id=3" class="cover-link">
+                        <img src="images/swordmaster.jpeg" alt="Sword Master's Youngest Son cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Sword Master's Youngest Son</h3>
+                        <p>Fantasy · Adventure</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Pick Me Up! Infinite Gacha" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=4" class="cover-link">
+                        <img src="images/pick me up.jpg" alt="Pick Me Up Infinite Gacha cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Pick Me Up! Infinite Gacha</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="The Extra's Academy Survival Guide" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=5" class="cover-link">
+                        <img src="images/extra.jpeg" alt="The Extra's Academy Survival Guide cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>The Extra's Academy Survival Guide</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Infinite Mage" data-genre="adventure fantasy" data-status="completed">
+                    <a href="reader.html?id=6" class="cover-link">
+                        <img src="images/infinite.jpg" alt="Infinite Mage cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Infinite Mage</h3>
+                        <p>Adventure · Fantasy</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Star Embracing Sword Master" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=7" class="cover-link">
+                        <img src="images/star.jpeg" alt="Star Embracing Sword Master cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Star Embracing Sword Master</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Wind Breaker" data-genre="sports drama" data-status="ongoing">
+                    <a href="reader.html?id=8" class="cover-link">
+                        <img src="images/windbreaker.jpg" alt="Wind Breaker cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Wind Breaker</h3>
+                        <p>Sports · Drama</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Solo Leveling" data-genre="action fantasy" data-status="completed">
+                    <a href="reader.html?id=9" class="cover-link">
+                        <img src="images/solo level.jpg" alt="Solo Leveling cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Solo Leveling</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Villain to Kill" data-genre="action supernatural" data-status="ongoing">
+                    <a href="reader.html?id=10" class="cover-link">
+                        <img src="images/Villain.jpg" alt="Villain to Kill cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Villain to Kill</h3>
+                        <p>Action · Supernatural</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Absolute Sword Sense" data-genre="action fantasy" data-status="completed">
+                    <a href="reader.html?id=11" class="cover-link">
+                        <img src="images/absolute.jpeg" alt="Absolute Sword Sense cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Absolute Sword Sense</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="SSS-Class Revival Hunter" data-genre="action fantasy school" data-status="ongoing">
+                    <a href="reader.html?id=12" class="cover-link">
+                        <img src="images/SSS CLASS.jpeg" alt="SSS-Class Revival Hunter cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>SSS-Class Revival Hunter</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Lookism" data-genre="action drama" data-status="ongoing">
+                    <a href="reader.html?id=13" class="cover-link">
+                        <img src="images/Lookism_Volume_1_Cover.jpg" alt="Lookism cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Lookism</h3>
+                        <p>Action · Drama</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="The Regressed Mercenary's Machinations" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=14" class="cover-link">
+                        <img src="images/regressed.jpeg" alt="The Regressed Mercenary's Machinations cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>The Regressed Mercenary's Machinations</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Absolute Regression" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=15" class="cover-link">
+                        <img src="images/regression.jpg" alt="Absolute Regression cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Absolute Regression</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="The Greatest Estate Developer" data-genre="comedy fantasy sci-fi" data-status="ongoing">
+                    <a href="reader.html?id=16" class="cover-link">
+                        <img src="images/Greatest.jpg" alt="The Greatest Estate Developer cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>The Greatest Estate Developer</h3>
+                        <p>Comedy · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Nano Machine" data-genre="action martial arts" data-status="ongoing">
+                    <a href="reader.html?id=17" class="cover-link">
+                        <img src="images/Nano.jpg" alt="Nano Machine cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Nano Machine</h3>
+                        <p>Action · Martial Arts</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="I Am the Fated Villain" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=18" class="cover-link">
+                        <img src="images/I am.jpeg" alt="I Am the Fated Villain cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>I Am the Fated Villain</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Myst Myth Mayhem" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=19" class="cover-link">
+                        <img src="images/myst.png" alt="Myst, Myth, Mayhem cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Myst, Myth, Mayhem</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Childhood Friend of the Zenith" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=20" class="cover-link">
+                        <img src="images/child.jpeg" alt="Childhood Friend of the Zenith cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Childhood Friend of the Zenith</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Omniscient Reader's Viewpoint" data-genre="action fantasy" data-status="ongoing">
+                    <a href="reader.html?id=21" class="cover-link">
+                        <img src="images/omni.jpeg" alt="Omniscient Reader's Viewpoint cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Omniscient Reader's Viewpoint</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="The Beginning After the End" data-genre="adventure fantasy romance" data-status="ongoing">
+                    <a href="reader.html?id=22" class="cover-link">
+                        <img src="images/beginning.jpg" alt="The Beginning After the End cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>The Beginning After the End</h3>
+                        <p>Adventure · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Tower of God" data-genre="adventure fantasy romance" data-status="ongoing">
+                    <a href="reader.html?id=23" class="cover-link">
+                        <img src="images/Tower of God.jpg" alt="Tower of God cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Tower of God</h3>
+                        <p>Adventure · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Doom Breaker" data-genre="action fantasy romance thriller" data-status="ongoing">
+                    <a href="reader.html?id=24" class="cover-link">
+                        <img src="images/doom.jpg" alt="Doom Breaker cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Doom Breaker</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="The God of High School" data-genre="action supernatural romance comedy" data-status="completed">
+                    <a href="reader.html?id=25" class="cover-link">
+                        <img src="images/god.jpg" alt="The God of High School cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>The God of High School</h3>
+                        <p>Action · Supernatural</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Wistoria" data-genre="action fantasy isekai" data-status="ongoing">
+                    <a href="reader.html?id=26" class="cover-link">
+                        <img src="images/Wistoria.jpg" alt="Wistoria cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Wistoria</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status ongoing">Ongoing</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Bleach" data-genre="action supernatural thriller" data-status="completed">
+                    <a href="reader.html?id=27" class="cover-link">
+                        <img src="images/Bleach.jpg" alt="Bleach cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Bleach</h3>
+                        <p>Action · Supernatural</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Black Clover" data-genre="action fantasy isekai mystery" data-status="completed">
+                    <a href="reader.html?id=28" class="cover-link">
+                        <img src="images/black.jpg" alt="Black Clover cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Black Clover</h3>
+                        <p>Action · Fantasy</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Attack on Titan" data-genre="action dark fantasy mystery" data-status="completed">
+                    <a href="reader.html?id=29" class="cover-link">
+                        <img src="images/attack.jpg" alt="Attack on Titan cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Attack on Titan</h3>
+                        <p>Action · Dark Fantasy</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+                <article class="comic-card" data-title="Jujutsu Kaisen" data-genre="action supernatural mystery thriller" data-status="completed">
+                    <a href="reader.html?id=30" class="cover-link">
+                        <img src="images/JJK.jpeg" alt="Jujutsu Kaisen cover">
+                    </a>
+                    <div class="comic-info">
+                        <h3>Jujutsu Kaisen</h3>
+                        <p>Action · Supernatural</p>
+                        <span class="story-status completed">Completed</span>
+                    </div>
+                </article>
+
+            </div>
+            <p id="noResults" hidden>No stories found. Try another search or filter.</p>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <a href="index.html" class="footer-logo">
+            ANI<span>MEX</span>
+        </a>
+    </footer>
+
+    </body>
+    </html>

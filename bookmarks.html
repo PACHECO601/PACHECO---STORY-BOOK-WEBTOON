@@ -1,0 +1,329 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>PACHECO, RENZO M - BSIT 21006</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="bookmarks.css">
+        </head>
+        <body>
+
+            <header class="site-header">
+                <nav class="navbar">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">A</span>
+                        <span>ANI<span class="logo-accent">MEX</span></span>
+                    </a>
+
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="browse.html">Explore</a>
+                        <a href="genre.html">Genres</a>
+                        <a href="bookmarks.html" class="active">Bookmarks</a>
+                    </div>
+
+                    <div class="nav-actions">
+                        <form class="search-box" id="searchForm" autocomplete="off">
+                            <span class="search-icon">⌕</span>
+                            <input
+                                type="search"
+                                id="searchInput"
+                                placeholder="Search"
+                                aria-label="Search stories"
+                            >
+                            <div class="search-suggestions" id="searchSuggestions"></div>
+                        </form>
+
+                        <button
+                            class="theme-button"
+                            id="themeToggle"
+                            type="button"
+                            aria-label="Toggle color theme"
+                        ></button>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="bookmarks-page">
+
+                <section class="bookmarks-section">
+                    <div class="bookmarks-toolbar">
+                        <div>
+                            <h2>Saved Stories</h2>
+                            <p id="bookmarkCount">0 stories saved</p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="clear-bookmarks"
+                            id="clearBookmarks"
+                        >Clear All</button>
+                    </div>
+
+                    <div class="bookmarks-grid" id="bookmarksGrid"></div>
+
+                    <div class="bookmarks-empty" id="bookmarksEmpty" hidden>
+                        <div class="empty-icon">♡</div>
+                        <h2>No bookmarks yet</h2>
+                        <p>Stories you save will appear here.</p>
+                        <a href="browse.html" class="browse-button">Explore Stories</a>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="site-footer">
+                <a href="index.html" class="footer-logo">ANI<span>MEX</span></a>
+            </footer>
+        <script>
+            
+
+        const bookmarksGrid = document.getElementById("bookmarksGrid");
+        const bookmarksEmpty = document.getElementById("bookmarksEmpty");
+        const bookmarkCount = document.getElementById("bookmarkCount");
+        const clearBookmarksButton = document.getElementById("clearBookmarks");
+
+        const BOOKMARK_KEY = "animexBookmarks";
+
+        function getBookmarks() {
+            try {
+                const saved = JSON.parse(
+                    localStorage.getItem(BOOKMARK_KEY) || "[]"
+                );
+
+                return Array.isArray(saved) ? saved : [];
+            } catch (error) {
+                console.error("Error loading bookmarks:", error);
+                return [];
+            }
+        }
+
+        function saveBookmarks(bookmarks) {
+            localStorage.setItem(
+                BOOKMARK_KEY,
+                JSON.stringify(bookmarks)
+            );
+        }
+        function renderBookmarks() {
+            const bookmarks = getBookmarks();
+
+            bookmarksGrid.innerHTML = "";
+
+            bookmarkCount.textContent =
+                `${bookmarks.length} ${
+                    bookmarks.length === 1 ? "story" : "stories"
+                } saved`;
+
+            bookmarksEmpty.hidden = bookmarks.length > 0;
+            bookmarksGrid.hidden = bookmarks.length === 0;
+            clearBookmarksButton.hidden = bookmarks.length === 0;
+
+            const likedStories = JSON.parse(
+                localStorage.getItem("animexLikes") || "[]"
+            ).map(Number);
+
+            bookmarks.forEach((story) => {
+                const card = document.createElement("article");
+                card.className = "bookmark-card";
+
+                // Show heart if the story is liked
+                if (likedStories.includes(Number(story.id))) {
+                    const heart = document.createElement("span");
+                    heart.className = "bookmark-like-icon";
+                    heart.textContent = "♥";
+                    heart.setAttribute("aria-label", "Liked story");
+                    heart.title = "You liked this story";
+
+                    card.appendChild(heart);
+                }
+
+                const cover = document.createElement("a");
+                cover.className = "bookmark-cover";
+                cover.href =
+                    `reader.html?id=${encodeURIComponent(story.id)}&chapter=1`;
+
+                const image = document.createElement("img");
+                image.src = story.cover || story.image || "images/placeholder.jpg";
+                image.alt = story.title || "Story cover";
+                image.loading = "lazy";
+
+                cover.appendChild(image);
+
+                const info = document.createElement("div");
+                info.className = "bookmark-info";
+
+                const title = document.createElement("h3");
+                title.textContent = story.title || "Untitled Story";
+
+                const genre = document.createElement("p");
+                genre.textContent = story.genre || "Manga / Manhwa";
+
+                const actions = document.createElement("div");
+                actions.className = "bookmark-actions";
+
+                const readLink = document.createElement("a");
+                readLink.className = "read-bookmark";
+                readLink.href =
+                    `reader.html?id=${encodeURIComponent(story.id)}&chapter=1`;
+                readLink.textContent = "Read Story";
+
+                const removeButton = document.createElement("button");
+                removeButton.className = "remove-bookmark";
+                removeButton.type = "button";
+                removeButton.textContent = "Remove";
+
+                removeButton.addEventListener("click", () => {
+                    const updatedBookmarks = getBookmarks().filter(
+                        item => Number(item.id) !== Number(story.id)
+                    );
+
+                    saveBookmarks(updatedBookmarks);
+                    renderBookmarks();
+                });
+
+                actions.append(readLink, removeButton);
+                info.append(title, genre, actions);
+                card.append(cover, info);
+
+                bookmarksGrid.appendChild(card);
+            });
+        }
+        clearBookmarksButton.addEventListener("click", () => {
+            const confirmed = confirm(
+                "Remove all saved stories from your bookmarks?"
+            );
+
+            if (!confirmed) return;
+
+            saveBookmarks([]);
+            renderBookmarks();
+        });
+
+        renderBookmarks();
+
+        const themeToggle = document.querySelector("#themeToggle");
+
+if (themeToggle) {
+    const savedTheme = localStorage.getItem("mangaTheme");
+
+    if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+    }
+
+    // Update icon based on current theme
+    function updateThemeIcon() {
+        themeToggle.textContent =
+            document.body.classList.contains("light-mode") ? "🌤️" : "🌙";
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+        const theme = document.body.classList.contains("light-mode")
+            ? "light"
+            : "dark";
+
+        localStorage.setItem("mangaTheme", theme);
+        updateThemeIcon();
+    });
+}
+        
+        
+        
+
+        // BOOKMARK SEARCH
+        if (
+            searchForm &&
+            searchInput &&
+            searchSuggestions &&
+            document.querySelector("#bookmarksGrid")
+        ) {
+            searchInput.addEventListener("input", function () {
+                const query = searchInput.value.trim().toLowerCase();
+
+                searchSuggestions.innerHTML = "";
+
+                if (!query) {
+                    searchSuggestions.classList.remove("show");
+                    return;
+                }
+
+                const bookmarks = getBookmarks();
+
+                const matches = bookmarks
+                    .filter(story => {
+                        const title = (story.title || "").toLowerCase();
+                        const genre = (story.genre || "").toLowerCase();
+
+                        return title.includes(query) || genre.includes(query);
+                    })
+                    .slice(0, 6);
+
+                if (matches.length === 0) {
+                    searchSuggestions.innerHTML = `
+                        <div class="search-no-results">
+                            No matching bookmarks found.
+                        </div>
+                    `;
+                } else {
+                    matches.forEach(story => {
+                        const suggestion = document.createElement("a");
+
+                        suggestion.className = "search-suggestion";
+                        suggestion.href =
+                            `reader.html?id=${encodeURIComponent(story.id)}&chapter=1`;
+
+                        const image = document.createElement("img");
+                        image.src =
+                            story.cover || story.image || "images/placeholder.jpg";
+                        image.alt = story.title || "Story cover";
+
+                        const info = document.createElement("div");
+                        info.className = "search-suggestion-info";
+
+                        const title = document.createElement("h4");
+                        title.textContent = story.title || "Untitled Story";
+
+                        const genre = document.createElement("p");
+                        genre.textContent = story.genre || "Manga / Manhwa";
+
+                        info.append(title, genre);
+                        suggestion.append(image, info);
+                        searchSuggestions.appendChild(suggestion);
+                    });
+                }
+
+                searchSuggestions.classList.add("show");
+            });
+
+            searchForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const firstSuggestion =
+                    searchSuggestions.querySelector(".search-suggestion");
+
+                if (firstSuggestion && searchInput.value.trim()) {
+                    window.location.href = firstSuggestion.href;
+                }
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!searchForm.contains(event.target)) {
+                    searchSuggestions.classList.remove("show");
+                }
+            });
+
+            searchInput.addEventListener("focus", function () {
+                if (searchInput.value.trim()) {
+                    searchInput.dispatchEvent(new Event("input"));
+                }
+            });
+        }
+
+        </script>
+        </body>
+        </html>
+

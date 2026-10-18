@@ -1,0 +1,277 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PACHECO, RENZO M - BSIT 21006</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <nav class="navbar">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span>ANI<span class="logo-accent">MEX</span></span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="browse.html">Explore</a>
+                    <a href="genre.html" class="active">Genres</a>
+                    <a href="bookmarks.html">Bookmarks</a>
+                </div>
+
+                <div class="nav-actions">
+            
+                <form class="search-box" id="searchForm" autocomplete="off">
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search stories or genres..."
+                        aria-label="Search stories or genres"
+                    >
+
+                    <div
+                        class="search-suggestions"
+                        id="searchSuggestions"
+                    ></div>
+                </form>
+
+
+                    <button
+                        class="theme-button"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle color theme"
+                    >☼</button>
+                </div>
+
+            </nav>
+        </header>
+
+    
+        <main class="browse-main">
+
+            <section class="browse-intro">
+            </section>
+
+            
+            <section class="browse-collection">
+
+                
+
+                <div class="comic-grid genre-grid">
+
+                    
+                    <a
+                        href="browse.html?genre=action"
+                        class="genre-card"
+                        data-genre="action"
+                    >
+                        <span class="genre-icon">⚔</span>
+
+                        <div>
+                            <h3>Action</h3>
+                            <p>Intense battles, powerful rivals, and epic fights.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                    
+                    <a
+                        href="browse.html?genre=adventure"
+                        class="genre-card"
+                        data-genre="adventure"
+                    >
+                        <span class="genre-icon">◆</span>
+
+                        <div>
+                            <h3>Adventure</h3>
+                            <p>Explore new places and face the unknown.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=fantasy"
+                        class="genre-card"
+                        data-genre="fantasy"
+                    >
+                        <span class="genre-icon">✧</span>
+
+                        <div>
+                            <h3>Fantasy</h3>
+                            <p>Magic, mythical creatures, and other worlds.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=romance"
+                        class="genre-card"
+                        data-genre="romance"
+                    >
+                        <span class="genre-icon">♡</span>
+
+                        <div>
+                            <h3>Romance</h3>
+                            <p>Relationships, emotions, and unexpected love.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=isekai"
+                        class="genre-card"
+                        data-genre="isekai"
+                    >
+                        <span class="genre-icon">◎</span>
+
+                        <div>
+                            <h3>Isekai</h3>
+                            <p>New lives in strange and unfamiliar worlds.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                    
+                    <a
+                        href="browse.html?genre=comedy"
+                        class="genre-card"
+                        data-genre="comedy"
+                    >
+                        <span class="genre-icon">☻</span>
+
+                        <div>
+                            <h3>Comedy</h3>
+                            <p>Funny moments and entertaining characters.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=drama"
+                        class="genre-card"
+                        data-genre="drama"
+                    >
+                        <span class="genre-icon">❖</span>
+
+                        <div>
+                            <h3>Drama</h3>
+                            <p>Emotional journeys and meaningful stories.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=mystery"
+                        class="genre-card"
+                        data-genre="mystery"
+                    >
+                        <span class="genre-icon">⌕</span>
+
+                        <div>
+                            <h3>Mystery</h3>
+                            <p>Secrets, clues, and unexpected discoveries.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                    
+                    <a
+                        href="browse.html?genre=supernatural"
+                        class="genre-card"
+                        data-genre="supernatural"
+                    >
+                        <span class="genre-icon">☾</span>
+
+                        <div>
+                            <h3>Supernatural</h3>
+                            <p>Unusual powers and unexplained phenomena.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=school"
+                        class="genre-card"
+                        data-genre="school"
+                    >
+                        <span class="genre-icon">▤</span>
+
+                        <div>
+                            <h3>School Life</h3>
+                            <p>Friendship, school days, and growing up.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=thriller"
+                        class="genre-card"
+                        data-genre="thriller"
+                    >
+                        <span class="genre-icon">△</span>
+
+                        <div>
+                            <h3>Thriller</h3>
+                            <p>Suspenseful plots and unexpected twists.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                
+                    <a
+                        href="browse.html?genre=sci-fi"
+                        class="genre-card"
+                        data-genre="sci-fi"
+                    >
+                        <span class="genre-icon">⌬</span>
+
+                        <div>
+                            <h3>Sci-Fi</h3>
+                            <p>Technology, futuristic worlds, and science.</p>
+                        </div>
+
+                        <span class="genre-arrow">↗</span>
+                    </a>
+
+                </div>
+            </section>
+
+        </main>
+
+        
+        <footer class="site-footer">
+
+            <div class="footer-logo">
+                ANI<span>MEX.</span>
+            </div>
+        
+
+        </footer>
+
+    </body>
+    </html>

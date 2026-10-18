@@ -1,0 +1,474 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PACHECO, RENZO M - BSIT 21006</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header class="site-header">
+            <nav class="navbar">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span>ANI<span class="logo-accent">MEX</span></span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="browse.html">Explore</a>
+                    <a href="genre.html">Genres</a>
+                    <a href="bookmarks.html">Bookmarks</a>
+                </div>
+
+                <div class="nav-actions">
+
+                    <form class="search-box" id="searchForm" autocomplete="off">
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            placeholder="Search stories"
+                            aria-label="Search stories"
+                        >
+
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </form>
+
+                    <a href="signup.html" class="signup-btn">
+                        <span>♙</span> Sign Up
+                    </a>
+
+                    <button
+                        class="theme-button"
+                        id="themeToggle"
+                        type="button"
+                        aria-label="Toggle color theme"
+                    >
+                        🌤️
+                    </button>
+
+                </div>
+
+            </nav>
+        </header>
+
+        <main>
+            <section class="featured-section">
+
+                <div class="featured-track">
+
+                    <a href="story.html?id=1" class="featured-card">
+                        <img src="images/solomax.jpg" alt="Solo Max-Level Newbie cover">
+                        <span class="featured-number">01</span>
+                    </a>
+
+                    <a href="story.html?id=2" class="featured-card">
+                        <img src="images/eleceed.jpeg" alt="Eleceed cover">
+                        <span class="featured-number">02</span>
+                    </a>
+
+                    <a href="story.html?id=3" class="featured-card">
+                        <img src="images/swordmaster.jpeg" alt="Sword Master's Youngest Son cover">
+                        <span class="featured-number">03</span>
+                    </a>
+
+                    <a href="story.html?id=4" class="featured-card">
+                        <img src="images/pick me up.jpg" alt="Pick Me Up! Infinite Gacha cover">
+                        <span class="featured-number">04</span>
+                    </a>
+
+                    <a href="story.html?id=5" class="featured-card">
+                        <img src="images/extra.jpeg" alt="The Extra's Academy Survival Guide cover">
+                        <span class="featured-number">05</span>
+                    </a>
+
+                    <a href="story.html?id=6" class="featured-card">
+                        <img src="images/infinite.jpg" alt="Infinite Mage cover">
+                        <span class="featured-number">06</span>
+                    </a>
+
+                    <a href="story.html?id=7" class="featured-card">
+                        <img src="images/star.jpeg" alt="Star Embracing Sword Master cover">
+                        <span class="featured-number">07</span>
+                    </a>
+
+                    <a href="story.html?id=8" class="featured-card">
+                        <img src="images/windbreaker.jpg" alt="Wind Breaker cover">
+                        <span class="featured-number">08</span>
+                    </a>
+
+                    <a href="story.html?id=9" class="featured-card">
+                        <img src="images/solo level.jpg" alt="Solo Leveling cover">
+                        <span class="featured-number">09</span>
+                    </a>
+
+                </div>
+
+            </section>
+
+            <section class="content-layout">
+
+
+                <div class="main-content">
+
+
+                    <section class="content-section" id="trending">
+
+                        <div class="section-header">
+
+                            <div class="section-title">
+                                <span class="novel-icon">✦</span>
+
+                                <div class="section-heading-text">
+                                    <h2>Trending Comics</h2>
+                                </div>
+                            </div>
+
+                            <a href="browse.html" class="view-all">
+                                View All
+                            </a>
+
+                        </div>
+
+            
+                        <div class="comic-grid">
+
+                            <article class="comic-card">
+                                <a href="story.html?id=10" class="cover-link">
+                                    <img src="images/Villain.jpg" alt="Villain to Kill">
+                                    <span class="rating">★ 9.6</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=10">Villain to Kill</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.6</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=11" class="cover-link">
+                                    <img src="images/absolute.jpeg" alt="Absolute Sword Sense">
+                                    <span class="rating">★ 9.4</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=11">Absolute Sword Sense</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.4</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=12" class="cover-link">
+                                    <img src="images/SSS CLASS.jpeg" alt="SSS-Class Revival Hunter">
+                                    <span class="rating">★ 9.2</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=12">SSS-Class Revival Hunter</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.2</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=13" class="cover-link">
+                                    <img src="images/Lookism_Volume_1_Cover.jpg" alt="Lookism">
+                                    <span class="rating">★ 9.5</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=13">Lookism</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.5</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=14" class="cover-link">
+                                    <img src="images/regressed.jpeg" alt="The Regressed Mercenary's Machinations">
+                                    <span class="rating">★ 9.3</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3>
+                                        <a href="story.html?id=14">The Regressed Mercenary's Machinations</a>
+                                    </h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.3</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=15" class="cover-link">
+                                    <img src="images/regression.jpg" alt="Absolute Regression">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=15">Absolute Regression</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=16" class="cover-link">
+                                    <img src="images/Greatest.jpg" alt="The Greatest Estate Developer">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=16">The Greatest Estate Developer</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=17" class="cover-link">
+                                    <img src="images/Nano.jpg" alt="Nano Machine">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=17">Nano Machine</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=18" class="cover-link">
+                                    <img src="images/I am.jpeg" alt="I Am the Fated Villain">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=18">I Am the Fated Villain</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=19" class="cover-link">
+                                    <img src="images/myst.png" alt="Myst, Myth, Mayhem">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=19">Myst, Myth, Mayhem</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=20" class="cover-link">
+                                    <img src="images/child.jpeg" alt="Childhood Friend of the Zenith">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=20">Childhood Friend of the Zenith</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=22" class="cover-link">
+                                    <img src="images/beginning.jpg" alt="The Beginning After the End">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=22">The Beginning After the End</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=21" class="cover-link">
+                                    <img src="images/omni.jpeg" alt="Omniscient Reader's Viewpoint">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=21">Omniscient Reader's Viewpoint</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=23" class="cover-link">
+                                    <img src="images/Tower of God.jpg" alt="Tower of God">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=23">Tower of God</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=24" class="cover-link">
+                                    <img src="images/doom.jpg" alt="Doom Breaker">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=24">Doom Breaker</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="comic-card">
+                                <a href="story.html?id=25" class="cover-link">
+                                    <img src="images/god.jpg" alt="The God of High School">
+                                    <span class="rating">★ 9.1</span>
+                                </a>
+
+                                <div class="comic-info">
+                                    <h3><a href="story.html?id=25">The God of High School</a></h3>
+                                    <p>Chapter 01</p>
+
+                                    <div class="comic-meta">
+                                        <span class="stars">★★★★★</span>
+                                        <span>9.1</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+
+                    </section>
+
+
+
+                </div>
+
+    
+                <aside class="popular-sidebar">
+
+                    <div class="sidebar-header">
+                        <h2>Popular</h2>
+
+                        <div class="popular-tabs">
+
+                            <button
+                                class="popular-tab active"
+                                type="button"
+                                data-period="weekly"
+                            >
+                                Weekly
+                            </button>
+
+                            <button
+                                class="popular-tab"
+                                type="button"
+                                data-period="monthly"
+                            >
+                                Monthly
+                            </button>
+
+                            <button
+                                class="popular-tab"
+                                type="button"
+                                data-period="all-time"
+                            >
+                                All Time
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="popular-list" id="popularList"></div>
+
+                </aside>
+
+            </section>
+
+        </main>
+
+
+        <footer class="site-footer">
+
+            <a href="index.html" class="footer-logo">
+                ANI<span>MEX</span>
+            </a>
+        </footer>
+
+    </body>
+    </html>

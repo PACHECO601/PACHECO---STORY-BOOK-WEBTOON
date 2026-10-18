@@ -1,0 +1,647 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>PACHECO, RENZO M - BSIT 21006</title>
+        <link rel="stylesheet" href="story.css">
+    </head>
+
+    <body>
+
+        <header class="navbar">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">A</span>
+                    <span>ANI<span class="logo-accent">MEX</span></span>
+                </a>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="browse.html">Explore</a>
+                <a href="genre.html">Genres</a>
+                <a href="bookmarks.html">Bookmark</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button type="button" id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-sun">   ☼</i>
+                </button>
+
+                <a href="browse.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back
+                </a>
+            </div>
+        </header>
+
+
+        <main class="story-container">
+
+            <section class="story-details">
+
+                <div class="cover-container">
+                    <img
+                        src="images/solomax.jpg"
+                        alt="Story Cover"
+                        class="story-cover"
+                        id="storyCover"
+                    >
+                </div>
+
+                <div class="story-info">
+
+                   
+
+                    <h1 id="storyTitle">The Max Level Hero Has Returned!</h1>
+                    <p class="story-author">
+                        
+                    Creator: <span id="storyAuthor">Author not listed</span>
+                    </p>
+
+                    <div class="story-meta">
+                        <span id="storyGenre">Action, Fantasy</span>
+                        <span class="meta-divider">•</span>
+                        <span id="storyStatus">Ongoing</span>
+                    </div>
+
+                    <p class="story-description" id="storyDescription">
+                        The story description will appear here. Discover the
+                        adventures, challenges, and journey of your favorite
+                        characters as you explore this story.
+                    </p>
+
+                    <button type="button" class="show-more" id="showMoreBtn">
+                        Show more
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+
+    
+                    <div class="story-actions">
+
+                        <button type="button" class="btn like-btn" id="likeBtn">
+                            ♥ <span id="likeText">Like</span>
+                        </button>
+
+                        <button type="button" class="btn bookmark-btn" id="bookmarkBtn">
+                            <i class="fa-regular fa-bookmark"></i>
+                            Bookmark
+                        </button>
+
+                        <button type="button" class="btn first-chapter-btn" id="firstChapterBtn">
+                            <i class="fa-regular fa-eye"></i>
+                            First Chapter
+                        </button>
+
+                        <button type="button" class="btn offline-btn" id="offlineBtn">
+                            <i class="fa-solid fa-download"></i>
+                            Read Offline
+                            <span class="premium-label">PREMIUM</span>
+                        </button>
+
+                    </div>
+
+
+
+                    <section class="chapters-section">
+
+                        <div class="chapters-header">
+                            <h2><span id="chapterCount">1</span> Chapters</h2>
+
+                            <select id="chapterSort" aria-label="Sort chapters">
+                                <option value="newest">Newest</option>
+                                <option value="oldest">Oldest</option>
+                            </select>
+                        </div>
+
+                        <div class="chapter-search">
+                            <input
+                                type="search"
+                                id="chapterSearch"
+                                placeholder="Search chapters..."
+                                aria-label="Search chapters"
+                            >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+            
+                        <div class="chapter-list" id="chapterList">
+                            <a href="reader.html?id=1&chapter=1" class="chapter-item" id="chapter1Link">
+                                <span>Chapter 1</span>
+                                <span class="chapter-date">Available now</span>
+                            </a>
+                        </div>
+
+
+                        <p class="empty-message" id="emptyMessage" hidden>
+                            No chapters found.
+                        </p>
+
+                    </section>
+
+                </div>
+            </section>
+        </main>
+
+
+        <script>
+            const themeToggle = document.getElementById("themeToggle");
+            const themeIcon = themeToggle.querySelector("i");
+
+            function applyTheme(theme) {
+                document.body.classList.toggle("light-mode", theme === "light");
+
+                themeIcon.className = theme === "light"
+                    ? "fa-solid fa-moon"
+                    : "fa-solid fa-sun";
+
+                themeToggle.setAttribute(
+                    "aria-label",
+                    theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+                );
+            }
+
+            const savedTheme = localStorage.getItem("mangaTheme") || "dark";
+            applyTheme(savedTheme);
+
+            themeToggle.addEventListener("click", () => {
+                const newTheme = document.body.classList.contains("light-mode")
+                    ? "dark"
+                    : "light";
+
+                localStorage.setItem("mangaTheme", newTheme);
+                applyTheme(newTheme);
+            });
+
+        const stories = [
+        {
+            id: 1,
+            title: "Solo Max-Level Newbie",
+            cover: "images/solomax.jpg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Kang Jinhyuk is a gaming streamer and the only person who has managed to reach the end of the notoriously difficult Tower of Trials. When the game's popularity begins to decline, he thinks his days of adventure are finally over. However, the tower suddenly becomes reality, turning its challenges into dangerous trials that threaten the lives of everyone involved. Unlike the other players, Jinhyuk possesses years of experience and an extensive knowledge of the tower's secrets. Using his strategic mind and familiarity with its hidden mechanics, he sets out to climb the tower again, defeat powerful enemies, and uncover opportunities that others cannot recognize."
+        },
+        {
+            id: 2,
+            title: "Eleceed",
+            cover: "images/eleceed.jpeg",
+            genre: "Action, Adventure",
+            status: "Ongoing",
+            description: "Jiwoo Seo is a kind-hearted young man who possesses extraordinary speed and a strong desire to help others. His quiet life changes when he meets Kayden, a powerful awakened individual who has been trapped in the body of a cat. Despite their very different personalities, the two form an unexpected partnership that changes Jiwoo's future. Under Kayden's guidance, Jiwoo begins learning how to control his abilities and navigate the hidden world of awakened individuals. As he encounters talented allies, dangerous enemies, and powerful organizations, he discovers that becoming stronger requires more than natural ability. His journey becomes a combination of action, friendship, humor, and personal growth."
+        },
+        {
+            id: 3,
+            title: "Sword Master's Youngest Son",
+            cover: "images/swordmaster.jpeg",
+            genre: "Fantasy, Adventure",
+            status: "Ongoing",
+            description: "Jin Runcandel is the youngest son of the prestigious Runcandel family, a household famous for producing exceptional swordsmen. Despite his heritage, Jin is considered a failure because he cannot meet the expectations placed upon him. After suffering a tragic fate, he receives an extraordinary opportunity to begin his life again. Determined not to repeat his previous mistakes, Jin uses his memories and experience to develop his abilities and make better decisions. His second chance leads him into dangerous conflicts, unexpected alliances, and challenges that test his determination. As he works to prove his worth, Jin begins shaping a future that is no longer controlled by the expectations of his family."
+        },
+        {
+            id: 4,
+            title: "Pick me Up! Infinite Gacha",
+            cover: "images/pick me up.jpg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Loki is a highly skilled player of a notoriously difficult mobile gacha game. His experience is put to the ultimate test when he suddenly finds himself inside the game as a low-ranking hero. In this unfamiliar world, every mission carries real consequences, and survival depends on teamwork, planning, and the effective use of limited resources. Instead of relying only on his former reputation, Loki must understand his new circumstances and lead others through increasingly dangerous challenges. As the missions grow more complicated, he learns that success requires careful decisions and cooperation. His knowledge of the game becomes his greatest advantage in a world where a single mistake can change everything."
+        },
+        {
+            id: 5,
+            title: "The Extra's Academy Survival Guide",
+            cover: "images/extra.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "After entering the world of a fantasy game, a player finds himself living as Ed Rothstaylor, a minor character whose future appears far from promising. Disowned and stripped of many privileges, Ed must survive without the advantages enjoyed by the main characters. Rather than chasing fame, he focuses on building a stable life through preparation, practical knowledge, and careful planning. His efforts become complicated when he encounters students, professors, and influential figures whose decisions can change the course of events. With danger hidden behind the academy's ordinary routines, Ed must use his understanding of the world to avoid a disastrous ending and create a future different from the one originally written for him."
+        },
+        {
+            id: 6,
+            title: "Infinite Mage",
+            cover: "images/infinite.jpg",
+            genre: "Adventure, Fantasy",
+            status: "Ongoing",
+            description: "Shirone grows up in a humble environment, far removed from the privileged world of nobles and professional mages. From an early age, he develops a fascination with books, knowledge, and the mysteries of magic. Although society places limits on what someone of his background can achieve, Shirone refuses to abandon his dream of becoming a mage. His curiosity and dedication eventually lead him toward opportunities that challenge the expectations surrounding him. As he enters a world of magical education, he encounters difficult lessons, talented rivals, and questions about the true nature of power. His journey explores knowledge, perseverance, and the determination to prove that a person's origins do not have to determine their future."
+        },
+        {
+            id: 7,
+            title: "Star Embracing Sword Master",
+            cover: "images/star.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Vlad is a young man who grows up on the rough streets, learning to survive in an environment where strength and quick decisions often determine a person's future. His life takes an unexpected turn after a mysterious encounter awakens a new ambition within him. Rather than remaining trapped by his circumstances, Vlad begins pursuing the path of a swordsman. His journey introduces him to demanding training, influential figures, and conflicts that reveal how complicated the world beyond the streets can be. As his abilities develop, he must learn to balance pride with discipline and make choices that will shape the person he becomes. His determination pushes him toward a future far greater than the one he once imagined."
+        },
+        {
+            id: 8,
+            title: "Windbreaker",
+            cover: "images/windbreaker.jpg",
+            genre: "Sports, Drama",
+            status: "Ongoing",
+            description: "Jay Jo is an exceptional student whose life revolves around academic expectations and a disciplined routine. Although he rarely seeks attention, his impressive cycling skills become impossible to ignore when he encounters people involved in competitive street biking. Drawn into this energetic community, Jay discovers a side of himself that school alone never allowed him to explore. Through races, training sessions, and unexpected friendships, he learns about teamwork, determination, and the freedom of pursuing something he genuinely enjoys. Competition also brings rivalries and emotional challenges that test his confidence. As Jay becomes more involved in the cycling world, he must decide what truly matters to him and how far he is willing to go to follow his own path."
+        },
+        {
+            id: 9,
+            title: "Solo Leveling",
+            cover: "images/solo level.jpg",
+            genre: "Action, Fantasy",
+            status: "Completed",
+            description: "In a world where mysterious gates connect humanity to monster-filled dungeons, certain people awaken special abilities and become hunters. Sung Jinwoo is known as the weakest of them all, constantly risking his life for rewards that barely cover his family's needs. During a disastrous dungeon expedition, he encounters a mysterious opportunity that changes the course of his life. He gains access to a unique system that allows him to complete quests, improve his abilities, and become stronger in ways other hunters cannot. As Jinwoo grows beyond his former limits, he begins facing increasingly dangerous enemies and uncovering secrets about the gates themselves. His personal struggle for survival gradually develops into a much larger conflict that could determine humanity's future."
+        },
+        {
+            id: 10,
+            title: "Villain to Kill",
+            cover: "images/Villain.jpg",
+            genre: "Action, Supernatural",
+            status: "Ongoing",
+            description: "Cassian Lee is a powerful psyker who believes in protecting others and using his abilities responsibly. His life changes dramatically after a tragic incident forces him into circumstances he never expected. He finds himself in a body associated with the very people he once opposed: villains. In a society where awakened individuals are judged by their actions and affiliations, Cassian must navigate a complicated world of heroes, criminals, and competing interests. His strength makes him a formidable presence, but his new circumstances challenge his identity and purpose. As he confronts powerful enemies and uncovers hidden motives, Cassian must determine how to move forward without losing sight of his principles."
+        },
+        {
+            id: 11,
+            title: "Absolute Sword Sense",
+            cover: "images/absolute.jpeg",
+            genre: "Action, Martial Arts",
+            status: "Ongoing",
+            description: "Woonhwi So has spent much of his life being treated as a failure because he lacks the talent expected of someone in the martial arts world. After a dangerous mission ends in tragedy, he unexpectedly returns to an earlier point in his life. This second chance comes with a remarkable ability: he can hear the voices of swords and learn from the secrets they carry. With this unusual power, Woonhwi gains new ways to understand weapons, combat, and the people around him. Determined not to repeat his previous mistakes, he begins making different choices and developing skills that once seemed beyond his reach. His journey combines martial arts, mystery, and personal growth as he works to change his destiny."
+        },
+        {
+            id: 12,
+            title: "SSS-Class Revival Hunter",
+            cover: "images/SSS CLASS.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Kim Gongja lives in a world where hunters climb a mysterious tower in pursuit of fame, wealth, and extraordinary power. Although he longs to become a celebrated hunter himself, his abilities initially leave him far behind the people he admires. Everything changes when he receives a rare skill that allows him to copy another person's ability under unusual conditions. This power opens a path that is far more complicated than he first expects. As Gongja begins exploring the tower, he encounters difficult trials, powerful opponents, and people whose lives are shaped by their ambitions. His journey challenges his understanding of strength and sacrifice, gradually transforming his desire for recognition into a deeper pursuit of meaning and purpose."
+        },
+        {
+            id: 13,
+            title: "Lookism",
+            cover: "images/Lookism_Volume_1_Cover.jpg",
+            genre: "Drama, Action",
+            status: "Ongoing",
+            description: "Daniel Park has experienced firsthand how cruelly people can judge someone based on appearance. His life changes when he discovers that he can switch between two bodies with very different appearances. This strange ability gives him a new perspective on school, friendship, popularity, and social status. As Daniel tries to understand his situation, he encounters people whose lives reveal the pressures and inequalities hidden beneath everyday interactions. What begins as a story about appearance gradually expands into conflicts involving school violence, personal ambition, loyalty, and identity. Through these experiences, Daniel learns that changing how people see you does not necessarily solve the problems that lie beneath the surface."
+        },
+        {
+            id: 14,
+            title: "The Regressed Mercenary's Machinations",
+            cover: "images/regressed.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Cyan Vert is a seasoned mercenary whose life has been shaped by battles, difficult decisions, and the harsh realities of survival. After meeting a tragic end, he receives an unexpected opportunity to return to the past. With his memories and experience intact, Cyan can recognize dangers that others have yet to encounter and mistakes that once cost him dearly. Rather than repeating the same path, he begins using his knowledge to protect the people around him, strengthen his position, and prepare for future conflicts. However, changing the course of events is not simple, especially when powerful individuals have their own hidden agendas. His second life becomes a calculated struggle to rewrite his fate and build a future on his own terms."
+        },
+        {
+            id: 15,
+            title: "Absolute Regression",
+            cover: "images/regression.jpg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "In the unforgiving world of martial arts, a warrior's mistakes can have consequences that last a lifetime. The protagonist receives an extraordinary chance to return to an earlier point in his life, carrying the memories and regrets of what came before. With the future no longer entirely unknown, he begins reconsidering the decisions that once led him toward defeat. Yet having knowledge of past events does not guarantee an easy victory, because people and circumstances can change when he takes a different path. As he works to refine his skills and confront old conflicts, he must learn to distinguish between what he can control and what remains uncertain. His journey explores second chances, martial arts, and the difficult process of reshaping destiny."
+        },
+        {
+            id: 16,
+            title: "The Greatest Estate Developer",
+            cover: "images/Greatest.jpg",
+            genre: "Comedy, Fantasy",
+            status: "Ongoing",
+            description: "When civil engineering student Kim Suho wakes up in a fantasy world, he discovers that he has taken the place of Lloyd Frontera, a nobleman whose family estate is drowning in debt. Instead of relying on magic or swordsmanship, he turns to his knowledge of engineering, construction, and practical problem-solving. Through ambitious projects and clever planning, Lloyd attempts to improve the estate's economy and secure a better future for its residents. His unconventional methods often produce hilarious reactions, especially when his plans become much more elaborate than anyone expects. Beneath the comedy lies a story about innovation, responsibility, and resourcefulness, showing how modern knowledge can transform a struggling community in surprising ways."
+        },
+        {
+            id: 17,
+            title: "Nano Machine",
+            cover: "images/Nano.jpg",
+            genre: "Action, Martial Arts",
+            status: "Ongoing",
+            description: "Cheon Yeo-Woon grows up facing discrimination and danger within the Heavenly Demon Cult because of his family background. With powerful rivals surrounding him, his chances of rising through the ranks seem slim. Everything changes when a mysterious descendant from the future gives him advanced nanotechnology that can analyze his body, improve his combat skills, and assist his training. This unexpected advantage allows Yeo-Woon to approach martial arts in a way no one else can. Nevertheless, technology alone cannot protect him from political schemes, deadly challenges, and enemies who underestimate no one. As he develops his abilities and gains influence, he must navigate the dangerous hierarchy of the cult while deciding what kind of leader he ultimately wants to become."
+        },
+        {
+            id: 18,
+            title: "I Am the Fated Villain",
+            cover: "images/I am.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Gu Changge awakens in a cultivation world where powerful families, ancient inheritances, and gifted protagonists compete for influence. Unlike the heroes typically found in such stories, he occupies the role of a calculating villain who understands how easily ambition can be manipulated. Using his status, intelligence, and carefully arranged schemes, he works to turn difficult situations to his advantage. His opponents often believe that destiny favors them, but Gu Changge is willing to challenge their assumptions and exploit their weaknesses. As he becomes involved in rivalries and mysterious events, the line between apparent heroes and hidden antagonists grows increasingly complicated. The story follows his strategic rise through a world where power depends as much on planning as it does on cultivation."
+        },
+        {
+            id: 19,
+            title: "Myst, Myth, Mayhem",
+            cover: "images/myst.png",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "In a dark martial arts world filled with powerful sects, hidden grudges, and dangerous supernatural forces, a mysterious figure becomes entangled in conflicts that reach far beyond ordinary rivalries. As secrets emerge and alliances shift, the boundaries between justice, revenge, and personal ambition grow increasingly uncertain. The story blends martial arts action with an unsettling atmosphere, following characters whose choices can have consequences for entire communities. Battles are only part of the struggle; understanding the motives of enemies and allies can be just as important. With its focus on mystery, intense confrontations, and morally complicated characters, Myst, Myth, Mayhem presents a world where even the strongest fighters must be wary of the secrets surrounding them."
+        },
+        {
+            id: 20,
+            title: "Childhood Friend of the Zenith",
+            cover: "images/child.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Gu Yangcheon has lived a troubled life, carrying a reputation and habits that have damaged his relationships with others. When he receives another opportunity to change his path, he begins reconsidering the choices that shaped his earlier existence. Determined to become someone better, he works to improve his martial arts abilities and rebuild the connections that matter to him. His efforts bring him into contact with powerful martial artists, complicated family relationships, and challenges that test his resolve. Although he possesses valuable experience, earning trust and changing deeply rooted patterns requires more than strength. As his relationships develop and new dangers appear, Gu Yangcheon must learn whether a different future is possible when he finally chooses to act differently."
+        },
+        {
+            id: 21,
+            title: "Omniscient Reader's Viewpoint",
+            cover: "images/omni.jpeg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Kim Dokja is an ordinary office worker whose favorite web novel has accompanied him through years of his life. He is the only reader who has followed the story to its conclusion, so he knows how its characters and major events are supposed to unfold. One day, the fictional world suddenly becomes reality, and humanity is forced to participate in dangerous scenarios controlled by mysterious beings. Dokja's knowledge gives him a rare advantage, but the real world does not always follow the story exactly as he remembers it. As he encounters the novel's protagonist and other survivors, he must make difficult decisions that can change their fates. His journey explores storytelling, survival, friendship, and the consequences of knowing what might happen next."
+        },
+        {
+            id: 22,
+            title: "The Beginning After the End",
+            cover: "images/beginning.jpg",
+            genre: "Action, Romance, Fantasy",
+            status: "Ongoing",
+            description: "King Grey once possessed immense power and authority, yet his life lacked the meaningful relationships that make existence worthwhile. After his death, he is reborn as Arthur Leywin in a world where magic, magical creatures, and dangerous adventures are part of everyday life. This new beginning gives him the opportunity to experience family, friendship, and emotional connections that were absent from his former existence. While retaining his previous knowledge, Arthur gradually develops his magical abilities and learns about the complexities of his new world. As he grows older, his journey takes him beyond the safety of home and into conflicts that threaten people he cares about. His second life becomes a story of personal growth, responsibility, and the difficult balance between power and humanity."
+        },
+        {
+            id: 23,
+            title: "Tower of God",
+            cover: "images/Tower of God.jpg",
+            genre: "Adventure, Fantasy",
+            status: "Ongoing",
+            description: "Twenty-Fifth Bam has spent most of his life isolated from the wider world, with Rachel serving as his most important connection. When Rachel enters the mysterious Tower, Bam follows her, beginning a journey into a place where climbers must pass dangerous tests to advance. The Tower promises extraordinary rewards to those who reach its highest levels, but its inhabitants are driven by competing ambitions, secrets, and rivalries. Along the way, Bam encounters companions who challenge his understanding of friendship and strength. His unusual abilities attract attention from powerful figures, placing him at the center of events he barely understands. As he climbs higher, the mysteries surrounding the Tower and its inhabitants become increasingly difficult to separate from his own search for Rachel."
+        },
+        {
+            id: 24,
+            title: "Doom Breaker",
+            cover: "images/doom.jpg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Zephyr is humanity's final warrior in a desperate struggle against the forces of darkness. Despite his determination, he eventually loses the battle against a powerful enemy and believes humanity's fate has been sealed. However, a divine intervention sends him back into the past, giving him an opportunity he never expected to receive. With memories of the future and experience gained from years of fighting, Zephyr begins preparing for the catastrophe before it happens. He must strengthen his abilities, form valuable alliances, and make choices that could prevent the destruction he once witnessed. Yet knowing the future does not make the road easy, because every change can create new risks. His second chance becomes a race to alter destiny and protect the world."
+        },
+        {
+            id: 25,
+            title: "God of High School",
+            cover: "images/god.jpg",
+            genre: "Action, Supernatural",
+            status: "Completed",
+            description: "Jin Mori is a cheerful and confident martial artist who loves challenging strong opponents. His skills lead him to enter the God of High School tournament, a competition designed to determine the strongest high school fighter. There, he meets talented competitors such as Daewi Han and Mira Yoo, and the three develop relationships that become central to their journeys. As the tournament progresses, the competition reveals powers and mysteries that extend far beyond ordinary martial arts. Jin and his companions become caught in conflicts involving supernatural forces and beings with extraordinary abilities. What begins as a contest of strength gradually expands into a larger struggle, testing their loyalty, courage, and understanding of the world around them."
+        },
+        {
+            id: 26,
+            title: "Wistoria",
+            cover: "images/Wistoria.jpg",
+            genre: "Action, Fantasy",
+            status: "Ongoing",
+            description: "Will Serfort studies at a prestigious magical academy in a world where the ability to use magic determines a person's standing. Unfortunately, Will cannot perform conventional magic, making him an outsider among students who rely on powerful spells. Despite this disadvantage, he refuses to abandon his promise to someone important to him. Instead, he trains relentlessly with a sword and develops exceptional physical and combat skills. His unconventional approach brings him into conflict with expectations, difficult examinations, and opponents who underestimate him. As he struggles to advance through the academy, Will must prove that determination and skill can challenge a system built around magical talent. His journey combines fantasy adventure, school rivalry, and the pursuit of a deeply personal dream."
+        },
+        {
+            id: 27,
+            title: "Bleach",
+            cover: "images/Bleach.jpg",
+            genre: "Action, Supernatural",
+            status: "Completed",
+            description: "Ichigo Kurosaki is a teenager who has been able to see spirits for as long as he can remember. His ordinary life changes when he meets Rukia Kuchiki, a Soul Reaper responsible for protecting the living world from dangerous spiritual beings known as Hollows. After an unexpected encounter, Ichigo receives Soul Reaper powers and takes on the responsibility of defending people from supernatural threats. His new duties lead him into increasingly dangerous battles and introduce him to a hidden society with its own rules, conflicts, and secrets. As he grows stronger, Ichigo learns more about his friends, his enemies, and the origins of his abilities. His journey explores courage, loyalty, and the responsibility that comes with protecting others."
+        },
+        {
+            id: 28,
+            title: "Black Clover",
+            cover: "images/black.jpg",
+            genre: "Action, Fantasy",
+            status: "Completed",
+            description: "In a world where magic influences nearly every aspect of life, Asta is born without any magical ability. Despite being surrounded by people who can perform extraordinary spells, he refuses to give up on his dream of becoming the Wizard King. His childhood rival and friend, Yuno, possesses exceptional magical talent, giving Asta even more reason to push himself. Everything changes when Asta obtains a mysterious grimoire containing anti-magic abilities that can counter ordinary spells. After joining the Magic Knights, he begins facing dangerous missions, powerful rivals, and threats that challenge the Clover Kingdom. Through hard work, loyalty, and determination, Asta seeks to prove that a lack of conventional magic does not have to define his future."
+        },
+        {
+            id: 29,
+            title: "Attack on Titan",
+            cover: "images/attack.jpg",
+            genre: "Action, Dark Fantasy",
+            status: "Completed",
+            description: "Humanity lives behind enormous walls built to protect its remaining population from the terrifying Titans, giant humanoid creatures that threaten human survival. Eren Yeager grows up believing that the walls are the only barrier between his people and extinction. After a devastating attack shatters his sense of security, Eren vows to fight the Titans and joins the military alongside his childhood friends Mikasa Ackerman and Armin Arlert. Their training prepares them for a world far more complicated than they imagined. As they face battles, political tensions, and unexpected revelations, they begin uncovering secrets about the Titans, the walls, and humanity's history. The story develops into a complex exploration of freedom, survival, conflict, and the consequences of pursuing one's ideals."
+        },
+        {
+            id: 30,
+            title: "Jujutsu Kaisen",
+            cover: "images/JJK.jpeg",
+            genre: "Action, Supernatural",
+            status: "Completed",
+            description: "Yuji Itadori is an unusually athletic student who prefers spending time with his friends rather than focusing on a traditional sports career. His life changes when he encounters a cursed object that attracts dangerous supernatural creatures. To protect the people around him, Yuji makes a decision that draws him into the hidden world of jujutsu sorcerers. He soon discovers that curses are born from humanity's negative emotions and that fighting them requires specialized abilities and rigorous training. Under the guidance of experienced sorcerers, Yuji begins learning how to face these threats while dealing with the consequences of his unusual circumstances. As increasingly dangerous conflicts emerge, he and his companions must confront difficult choices about responsibility, sacrifice, and what it means to save others."
+        }
+    ];
+
+    const storyAuthors = {
+        1: "WAN.Z (Story) / Swing Bat (Art)",
+        2: "Son Je-ho (Story) / Zhena (Art)",
+        3: "Hwang Jeong-hyun / AZI",
+        4: "Hermod (Original Novel) / WASAK BASAK (Art)",
+        5: "Grrr (Original Novel)",
+        6: "Kim Chi-woo (Original Novel)",
+        7: "Q10 / Hong Dae-ui",
+        8: "Jo Yong-seok",
+        9: "Chugong (Original Novel) / DUBU (Art)",
+        10: "Fupin (Story) / Eunji (Art)",
+        11: "Hanjung Wolya (Original Novel)",
+        12: "Shin Noah (Original Novel) / Bill K (Art)",
+        13: "Park Tae-jun",
+        14: "GM (Story) / Do7 (Art)",
+        15: "Mogma (Original Novel)",
+        16: "BK_Moon (Story) / Lee Hyun-min (Art)",
+        17: "Hanjung Wolya (Original Novel) / Geumgang Bulgoe (Art)",
+        18: "Gu Xiang",
+        19: "Hanjung Wolya (Original Novel)",
+        20: "Mokma (Original Novel)",
+        21: "singNsong / Sleepy-C / Blackbox",
+        22: "TurtleMe / Fuyuki23",
+        23: "S.I.U.",
+        24: "Blue-Deep",
+        25: "Yongje Park",
+        26: "Fujino Omori / Toshi Aoi",
+        27: "Tite Kubo",
+        28: "Yuki Tabata",
+        29: "Hajime Isayama",
+        30: "Gege Akutami"
+    };
+
+
+
+
+
+    const params = new URLSearchParams(window.location.search);
+    const storyId = Number(params.get("id")) || 1;
+
+    const story = stories.find(item => item.id === storyId);
+
+    const storyCover = document.getElementById("storyCover");
+    const storyTitle = document.getElementById("storyTitle");
+    const storyGenre = document.getElementById("storyGenre");
+    const storyStatus = document.getElementById("storyStatus");
+    const storyDescription = document.getElementById("storyDescription");
+
+    if (story) {
+        storyCover.src = story.cover;
+        storyCover.alt = story.title;
+
+        storyTitle.textContent = story.title;
+        storyGenre.textContent = story.genre;
+        storyStatus.textContent = story.status;
+        storyDescription.textContent = story.description;
+
+        document.title = `${story.title} | Animex`;
+    } else {
+        storyTitle.textContent = "Story Not Found";
+        storyDescription.textContent = "The selected story could not be found.";
+    }
+
+
+    const firstChapterBtn = document.getElementById("firstChapterBtn");
+    const chapter1Link = document.getElementById("chapter1Link");
+
+    function openFirstChapter() {
+        if (!story) {
+            alert("Story not found. Please select a story again.");
+            return;
+        }
+
+        window.location.href =
+            `reader.html?id=${story.id}&chapter=1`;
+    }
+
+    if (firstChapterBtn) {
+        firstChapterBtn.addEventListener("click", openFirstChapter);
+    }
+
+    if (chapter1Link) {
+        chapter1Link.href = story
+            ? `reader.html?id=${story.id}&chapter=1`
+            : "reader.html";
+    }
+
+
+    const showMoreBtn = document.getElementById("showMoreBtn");
+
+    if (showMoreBtn && storyDescription) {
+        showMoreBtn.addEventListener("click", function () {
+            storyDescription.classList.toggle("expanded");
+
+            if (storyDescription.classList.contains("expanded")) {
+                showMoreBtn.innerHTML =
+                    'Show less <i class="fa-solid fa-chevron-up"></i>';
+            } else {
+                showMoreBtn.innerHTML =
+                    'Show more <i class="fa-solid fa-chevron-down"></i>';
+            }
+        });
+    }
+
+
+    const bookmarkBtn = document.getElementById("bookmarkBtn");
+    const BOOKMARK_KEY = "animexBookmarks";
+
+    function getBookmarks() {
+        try {
+            const data = JSON.parse(
+                localStorage.getItem(BOOKMARK_KEY) || "[]"
+            );
+            return Array.isArray(data) ? data : [];
+        } catch {
+            return [];
+        }
+    }
+
+    function updateBookmarkButton() {
+        if (!story || !bookmarkBtn) return;
+
+        const saved = getBookmarks().some(
+            item => Number(item.id) === story.id
+        );
+
+        bookmarkBtn.innerHTML = saved
+            ? '<i class="fa-solid fa-bookmark"></i> Bookmarked'
+            : '<i class="fa-regular fa-bookmark"></i> Bookmark';
+    }
+
+    if (story && bookmarkBtn) {
+        updateBookmarkButton();
+
+        bookmarkBtn.addEventListener("click", () => {
+            const bookmarks = getBookmarks();
+            const index = bookmarks.findIndex(
+                item => Number(item.id) === story.id
+            );
+
+            if (index === -1) {
+                bookmarks.push({
+                    id: story.id,
+                    title: story.title,
+                    cover: story.cover,
+                    genre: story.genre,
+                    status: story.status
+                });
+            } else {
+                bookmarks.splice(index, 1);
+            }
+
+            localStorage.setItem(
+                BOOKMARK_KEY,
+                JSON.stringify(bookmarks)
+            );
+
+            updateBookmarkButton();
+        });
+    }
+
+
+
+
+    const likeBtn = document.getElementById("likeBtn");
+    const likeText = document.getElementById("likeText");
+    const LIKE_KEY = "animexLikes";
+
+    function getLikes() {
+        try {
+            const data = JSON.parse(
+                localStorage.getItem(LIKE_KEY) || "[]"
+            );
+
+            return Array.isArray(data)
+                ? [...new Set(data.map(Number).filter(Number.isFinite))]
+                : [];
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function updateLikeButton() {
+        if (!story || !likeBtn || !likeText) return;
+
+        const likes = getLikes();
+        const isLiked = likes.includes(Number(story.id));
+
+        likeText.textContent = isLiked ? "Liked" : "Like";
+        likeBtn.classList.toggle("liked", isLiked);
+        likeBtn.setAttribute("aria-pressed", String(isLiked));
+    }
+
+    if (likeBtn && likeText && story) {
+        updateLikeButton();
+
+        likeBtn.addEventListener("click", () => {
+            const likes = getLikes();
+            const currentId = Number(story.id);
+
+            const updatedLikes = likes.includes(currentId)
+                ? likes.filter(id => id !== currentId)
+                : [...likes, currentId];
+
+            localStorage.setItem(
+                LIKE_KEY,
+                JSON.stringify(updatedLikes)
+            );
+
+            updateLikeButton();
+        });
+    }
+
+
+
+
+    const storyAuthor = document.getElementById("storyAuthor");
+
+    if (storyAuthor) {
+        storyAuthor.textContent =
+            storyAuthors[story.id] || "Author not listed";
+    }
+
+
+
+        </script>
+    </body>
+    </html>
+    
